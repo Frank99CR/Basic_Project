@@ -25,7 +25,7 @@ def get_top_scores(list_of_scores):
   top_three_student = []
   for best_score in list_of_scores:
     top_three_student.append(best_score)
-  top_three_student.sort()    
+  top_three_student.sort(reverse=True)    
   print(top_three_student)
   menu()
 
