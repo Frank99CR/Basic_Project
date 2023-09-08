@@ -1,2 +1,2 @@
-# Basic_Project
+# Basic Project
 Basic Project with Python
