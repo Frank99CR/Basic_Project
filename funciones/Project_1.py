@@ -19,7 +19,7 @@ def get_list_of_students(list_of_students, list_of_scores):
     pass
     for score in list_of_scores:
       pass
-      print(f"Name:{student}: Score:{score}")
+    print(f"Name:{student}: Score:{score}")
 
   menu()  
 
