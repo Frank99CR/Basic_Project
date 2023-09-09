@@ -10,7 +10,7 @@ def register_student():
   list_of_students.append(final_name)
   list_of_scores.append(student_score)
 
-  print("Registro exitoso")
+  print("The student was sucessfully registered")
   
   menu()
 
@@ -47,7 +47,7 @@ def get_average_of_scores(list_of_scores):
 
   final_average = sum_of_scores / len(list_of_scores)  
 
-  #print(round(final_average, 2))
+  
   print(f"The average of all scores is: {round(final_average, 2)}")
   menu()
 
@@ -60,16 +60,16 @@ def menu():
   print("""    
     --------------------------------------------------
                   Project 1
-    1) Registro de estudiantes
-    2) Mostar estudiantes
-    3) Ver mejores promedios
-    4) Promedio total    
-    5) Salir             
+    1) Student Record
+    2) Show students records
+    3) Show top averages
+    4) Total average    
+    5) Exit            
     --------------------------------------------------
 
   """)
 
-  user_input = input("Digite una opcion del menu: ")
+  user_input = input("Please enter a menu option: ")
 
   if user_input == "1":
     register_student()
@@ -80,9 +80,9 @@ def menu():
   elif user_input == "4":
     get_average_of_scores(list_of_scores)
   elif user_input == "5": 
-    print("Gracias por usar el sistema")
+    print("Thank you")
   else:
-    print("Digite la opcion correcta ")
+    print("Enter the correct option ")
     menu()  
     
   
