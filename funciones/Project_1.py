@@ -29,8 +29,11 @@ def get_top_scores(list_of_scores):
   top_three_scores = []
   for score in list_of_scores:
     top_three_scores.append(score)
-  top_three_scores.sort(reverse=True)    #
-  print(top_three_scores)
+  top_three_scores.sort(reverse=True)
+
+  print(f"Nota 1: {top_three_scores[0]}")
+  print(f"Nota 2: {top_three_scores[1]}")
+  print(f"Nota 3: {top_three_scores[2]}")
   menu()
 
 
