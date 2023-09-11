@@ -26,14 +26,14 @@ def get_list_of_students(list_of_students, list_of_scores):
   
 
 def get_top_scores(list_of_scores):
-  top_three_scores = []
-  for score in list_of_scores:
-    top_three_scores.append(score)
-  top_three_scores.sort(reverse=True)
 
-  print(f"Nota 1: {top_three_scores[0]}")
-  print(f"Nota 2: {top_three_scores[1]}")
-  print(f"Nota 3: {top_three_scores[2]}")
+  top_three_scores = list_of_scores.copy()
+  top_three_scores.sort(reverse=True)
+  
+  for score in top_three_scores[0:3]:
+    print(f"Nota: {score}")
+
+  
   menu()
 
 
