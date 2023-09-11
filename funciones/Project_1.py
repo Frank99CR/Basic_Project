@@ -1,6 +1,6 @@
 list_of_students = []
 list_of_scores = []
-top_score_student = []
+
 
 def register_student():
 
