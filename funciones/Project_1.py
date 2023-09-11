@@ -3,6 +3,7 @@ list_of_scores = []
 top_score_student = []
 
 def register_student():
+
   student_name = input("Please enter your name: ")
   student_last_name = input("Please enter your last name: ")
   student_score = float(input("Please enter your score: "))
@@ -16,15 +17,8 @@ def register_student():
 
 def get_list_of_students(list_of_students, list_of_scores):
   
-    # for student in list_of_students: // # not working properly
-    #  for score in list_of_scores:
-    #   print(f"Name: {student}, Score: {score}")
-
-    for student in list_of_students:
-      print(f"Name: {student}")
-    for score in list_of_scores:
-      print(f"Score: {score}")  
-
+    for student in range(len(list_of_scores)):
+      print(f"Name: {list_of_students[student]}, Score: {list_of_scores[student]}")
 
     menu()  
     
