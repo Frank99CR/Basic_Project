@@ -26,11 +26,13 @@ def get_list_of_students(list_of_students, list_of_scores):
   
 
 def get_top_scores(list_of_scores):
-
   top_three_scores = list_of_scores.copy()
   top_three_scores.sort(reverse=True)
-  
-  for score in top_three_scores[0:3]:
+
+  if len(top_three_scores) == 0:
+   print("No scores available")
+  else:
+   for score in top_three_scores[0:3]:
     print(f"Nota: {score}")
 
   
