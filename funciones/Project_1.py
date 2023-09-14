@@ -1,8 +1,9 @@
-list_of_students = []
-list_of_scores = []
+def entry_point():
+  list_of_students = []
+  list_of_scores = []
+  menu(list_of_students, list_of_scores)
 
-
-def register_student():
+def register_student(list_of_students, list_of_scores):
 
   student_name = input("Please enter your name: ")
   student_last_name = input("Please enter your last name: ")
@@ -13,19 +14,19 @@ def register_student():
 
   print("The student was sucessfully registered")
   
-  menu()
+  menu(list_of_students, list_of_scores)
 
 def get_list_of_students(list_of_students, list_of_scores):
   
     for student in range(len(list_of_scores)):
       print(f"Name: {list_of_students[student]}, Score: {list_of_scores[student]}")
 
-    menu()  
+    menu(list_of_students, list_of_scores)  
     
   
   
 
-def get_top_scores(list_of_scores):
+def get_top_scores(list_of_students, list_of_scores):
   top_three_scores = list_of_scores.copy()
   top_three_scores.sort(reverse=True)
 
@@ -36,10 +37,10 @@ def get_top_scores(list_of_scores):
     print(f"Nota: {score}")
 
   
-  menu()
+  menu(list_of_students, list_of_scores)
 
 
-def get_average_of_scores(list_of_scores):
+def get_average_of_scores(list_of_students, list_of_scores):
   sum_of_scores = 0
   for score in list_of_scores:
     sum_of_scores = sum_of_scores + score
@@ -48,13 +49,13 @@ def get_average_of_scores(list_of_scores):
 
   
   print(f"The average of all scores is: {round(final_average, 2)}")
-  menu()
+  menu(list_of_students, list_of_scores)
 
 
 
 
 
-def menu():
+def menu(list_of_students, list_of_scores):
 
   print("""    
     --------------------------------------------------
@@ -71,23 +72,25 @@ def menu():
   user_input = input("Please enter a menu option: ")
 
   if user_input == "1":
-    register_student()
+    register_student(list_of_students, list_of_scores)
   elif user_input == "2":
     get_list_of_students(list_of_students, list_of_scores)
   elif user_input == "3":
-    get_top_scores(list_of_scores)  
+    get_top_scores(list_of_students, list_of_scores)  
   elif user_input == "4":
-    get_average_of_scores(list_of_scores)
+    get_average_of_scores(list_of_students, list_of_scores)
   elif user_input == "5": 
     print("Thank you")
   else:
     print("Enter the correct option ")
-    menu()  
+    menu(list_of_students, list_of_scores)  
     
   
 
 
-menu()
+
+
+entry_point()
 
 
 
