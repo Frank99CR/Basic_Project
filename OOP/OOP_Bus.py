@@ -20,7 +20,8 @@ class Bus:
         else:
             pasajero1 = Person("Alek")
             print(f"Se agrego un pasajero: ")
-            print(pasajero1.print_name())
+            pasajero1.print_name()
+            
 
 
 my_bus = Bus(10)
