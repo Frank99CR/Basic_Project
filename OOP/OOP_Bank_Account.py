@@ -33,10 +33,10 @@ class Savings_Account(Bank_Account):
 
 
 
-#my_bank_account = Bank_Account(1000)
-#my_bank_account.print_balance(1000)
-#my_bank_account.deposit_money(500)
-#my_bank_account.withdraw_money(100)
+my_bank_account = Bank_Account(1000)
+my_bank_account.print_balance(1000)
+my_bank_account.deposit_money(500)
+my_bank_account.withdraw_money(100)
 
 my_savings = Savings_Account(1000)
 my_savings.print_balance(1000)
