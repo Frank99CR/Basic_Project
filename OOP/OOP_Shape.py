@@ -17,55 +17,55 @@ class Circle(Shape):
     def __init__(self, diametro):
         self.diametro = diametro
     
-    def calculate_perimeter(self, diametro):
+    def calculate_perimeter(self):
         Pi = math.pi
-        print(f"El diametro del circulo es: {round(Pi * diametro, 2)}cm")
+        print(f"El diametro del circulo es: {round(Pi * self.diametro, 2)}cm")
 
-    def calculate_area(self, diametro):
-        radius = diametro / 2
+    def calculate_area(self):
+        radius = self.diametro / 2
         Pi = math.pi
         print(f"El area del cirdulo es: {round(Pi * radius ** 2, 2)}cm")
 
 class Square(Shape):
-    Longitud_lado : int
+    longitud_lado : int
 
-    def __init__(self, Longitud_lado):
-        self.Longitud_lado = Longitud_lado
+    def __init__(self, longitud_lado):
+        self.longitud_lado = longitud_lado
 
-    def calculate_perimeter(self, Longitud_lado):
-        perimeter = Longitud_lado * 4
+    def calculate_perimeter(self):
+        perimeter = self.longitud_lado * 4
         print(f"El perimetro del cuadrado es: {perimeter} cm")
 
-    def calculate_area(self, Longitud_lado):
-        area = Longitud_lado * Longitud_lado
+    def calculate_area(self):
+        area = self.longitud_lado * self.longitud_lado
         print(f"El area dle circulo es: {area} cm2")
 
 class Rectangle(Shape):
-    Longitud : int
-    Ancho : int
+    longitud : int
+    ancho : int
 
-    def __init__(self, Longitud, Ancho):
-        self.Longitud = Longitud
-        self.Ancho = Ancho
+    def __init__(self, longitud, ancho):
+        self.longitud = longitud
+        self.ancho = ancho
         
-    def calculate_perimeter(self, Longitud, Ancho):
-        Perimeter = Longitud + Ancho
+    def calculate_perimeter(self):
+        Perimeter = self.longitud + self.ancho
         print(f"El perimetro del rectangulo es: {Perimeter * 2}cm ")
 
-    def calculate_area(self, Longitud, Ancho):
-        area_of_rectangle = Longitud * Ancho
-        print(f"El area del rectangulo es: {area_of_rectangle}cm")
+    def calculate_area(self):
+        area_of_rectangle = self.longitud * self.ancho
+        print(f"El area del rectangulo es: {area_of_rectangle} cm")
         pass
 
 
 circulo = Circle(10)
-#circulo.calculate_perimeter(10)
-#circulo.calculate_area(10)
+circulo.calculate_perimeter()
+circulo.calculate_area()
 
 cuadrado = Square(8)
-#cuadrado.calculate_perimeter(8)
-#cuadrado.calculate_area(8)
+cuadrado.calculate_perimeter()
+cuadrado.calculate_area()
 
 rectangulo = Rectangle(10, 5)
-#rectangulo.calculate_perimeter(10, 5)
-rectangulo.calculate_area(10, 5)
+rectangulo.calculate_perimeter()
+rectangulo.calculate_area()

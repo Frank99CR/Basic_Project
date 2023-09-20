@@ -4,28 +4,45 @@ class Person:
     def __init__(self, name):
         self.name = name
 
-    def print_name(self):
-        print(self.name)
 
 class Bus:
     max_passenger : int
+    passenger_on_us : list
+    
+    
 
-    def __init__(self, max_passenger):
+    def __init__(self, max_passenger, passenger_on_bus):
         self.max_passenger = max_passenger
+        self.passenger_on_bus = passenger_on_bus
+        
 
-    def subir_pasajeros(self, max_passenger):
+    def subir_pasajeros(self, new_passenger):
 
-        if max_passenger >= 10:
+        if len(self.passenger_on_bus) >= self.max_passenger:
             print("No hay espacio para otro pasajero ")
+           
         else:
-            pasajero1 = Person("Alek")
-            print(f"Se agrego un pasajero: ")
-            pasajero1.print_name()
+            self.passenger_on_bus.append(new_passenger)
+            print(f"Nuevo pasejero en el bus. ")
             
 
 
-my_bus = Bus(10)
+my_passenger1 = Person ("Francisco")
+my_passenger2 = Person ("Valeria")
+my_passenger3 = Person ("Alek")
+my_passenger4 = Person ("Olde")
+my_passenger5 = Person ("Sandi")
 
-my_bus.subir_pasajeros(9)
+my_passenger6 = Person("Susana")
+my_passenger7 = Person("Maria Solano")
+my_passenger8 = Person("Marlon")
 
-            
+list_of_passengers = [my_passenger1, my_passenger2, my_passenger3, my_passenger4, my_passenger5]
+
+
+
+my_bus = Bus(6, list_of_passengers)
+
+my_bus.subir_pasajeros(my_passenger7)
+my_bus.subir_pasajeros(my_passenger6)
+my_bus.subir_pasajeros(my_passenger8)
