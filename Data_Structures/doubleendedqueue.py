@@ -10,55 +10,68 @@ class DoubleEndedQueue:
     top : Node
     bottom : Node
 
-    def __init__(self):   
-        self.top = None
-        self.bottom = None
+    def __init__(self, top =None, bottom=None):   
+        self.top = top
+        self.bottom = bottom
 
     def push_left(self, new_node):
-        current_node_left = self.bottom
-        next_node = current_node_left.next
-        while (next_node is not None):
-            current_node_left = next_node
-            next_node = current_node_left.next
+        if self.bottom == None:
+            self.bottom = new_node
+        new_node.next = self.top
+        self.top = new_node
 
-        current_node_left = new_node  
+    def push_right(self, new_node):
+        if self.top == None:
+          self.top = new_node
+        if self.bottom:
+         self.bottom.next = new_node
+        self.bottom = new_node
 
-    def push_right(self):
-        current_node_right = self.top
-        new_node = current_node_right.next
-        while (new_node is not None):
-            current_node_right = new_node
-            new_node = current_node_right.next
-        current_node_right = new_node      
-
-
+       
+        
+        
     def pop_left(self):
-        self.bottom = self.bottom.next
+        self.top = self.top.next 
 
     def pop_right(self):
-        self.top = self.top.next
+         
+         current_node = self.bottom
+         next_node = current_node.next
+         while (current_node.next is not self.bottom):
+          current_node.next = None
+          self.bottom =  current_node
 
-    def print_structure():
-        pass
+ 
+    def print_structure(self):
+        current_node = self.top
+        while(current_node is not None):
+            print(current_node.data)
+            current_node = current_node.next
+          
 
-
+cuarto_nodo = Node("Soy el cuarto nodo")
 tercer_nodo = Node("Soy el tercer nodo")
-segundo_nodo = Node("Soy el segundo nodo", tercer_nodo)
-primer_nodo = Node("Soy el primer nodo", segundo_nodo)
+segundo_nodo = Node("Soy el segundo nodo")
+primer_nodo = Node("Soy el primer nodo")
 
 queue_doble = DoubleEndedQueue()
 
-queue_doble.print_structure()
-# queue_doble.push_right()
-#queue_doble.push_left()
+#queue_doble.print_structure()
 
-# queue_doble.print_structure()
+queue_doble.push_left(segundo_nodo)
+queue_doble.push_left(primer_nodo)
+#queue_doble.print_structure()
+queue_doble.push_right(tercer_nodo)
+queue_doble.push_right(cuarto_nodo)
 
 # queue_doble.pop_right()
-# queue_doble.pop_left()
+#queue_doble.pop_left()
 
 
-# queue_doble.print_structure()
+#queue_doble.print_structure()
+print("Pop Right")
+queue_doble.pop_right()
+queue_doble.print_structure()
 
 
 

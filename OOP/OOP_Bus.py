@@ -11,9 +11,10 @@ class Bus:
     
     
 
-    def __init__(self, max_passenger, passenger_on_bus):
+    def __init__(self, max_passenger):
         self.max_passenger = max_passenger
-        self.passenger_on_bus = passenger_on_bus
+        self.passenger_on_bus = []
+
         
 
     def subir_pasajeros(self, new_passenger):
@@ -23,7 +24,7 @@ class Bus:
            
         else:
             self.passenger_on_bus.append(new_passenger)
-            print(f"Nuevo pasejero en el bus. ")
+            print(f"Nuevo pasajero en el bus. ")
             
 
 
@@ -37,12 +38,12 @@ my_passenger6 = Person("Susana")
 my_passenger7 = Person("Maria Solano")
 my_passenger8 = Person("Marlon")
 
-list_of_passengers = [my_passenger1, my_passenger2, my_passenger3, my_passenger4, my_passenger5]
+my_bus = Bus(6)
 
-
-
-my_bus = Bus(6, list_of_passengers)
-
-my_bus.subir_pasajeros(my_passenger7)
+my_bus.subir_pasajeros(my_passenger1)
+my_bus.subir_pasajeros(my_passenger2)
+my_bus.subir_pasajeros(my_passenger3)
+my_bus.subir_pasajeros(my_passenger4)
+my_bus.subir_pasajeros(my_passenger5)
 my_bus.subir_pasajeros(my_passenger6)
-my_bus.subir_pasajeros(my_passenger8)
+my_bus.subir_pasajeros(my_passenger7)

@@ -9,8 +9,8 @@ class Node:
 class BinaryTree:
     root : Node  
 
-    def __init__(self): 
-        self.root = None   
+    def __init__(self, root=None): 
+        self.root = root  
         
 
     def print_structure(self, node):

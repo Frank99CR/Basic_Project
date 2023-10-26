@@ -12,13 +12,12 @@ class Stack:
     def __init__(self):
         self.top = None
 
-    def push(self, new_node):  #Revisar
+    def push(self, new_node):  
         new_node.next = self.top
         self.top = new_node
         
-       
 
-    def pop(self): #Revisar
+    def pop(self): 
         self.top = self.top.next 
 
     def print_stack(self):
@@ -43,6 +42,12 @@ my_stack.print_stack()
 print("Eliminando")
 my_stack.pop()
 my_stack.print_stack()
+print("Eliminando")
+my_stack.pop()
+my_stack.print_stack()
+# print("Eliminando")
+# my_stack.pop()
+# my_stack.print_stack()
 
 
 

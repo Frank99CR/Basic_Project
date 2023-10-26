@@ -106,9 +106,9 @@ list = "python-variable-funcion-computadora-monitor"
 
 #print(my_list)
 
-def get_alphabetical_order (separeted_word): # reglas de ordenamiento lexicográfico estándar de Python, que trata las letras mayúsculas y minúsculas de manera diferente
+def get_alphabetical_order (separated_word): # reglas de ordenamiento lexicográfico estándar de Python, que trata las letras mayúsculas y minúsculas de manera diferente
     final_list = []
-    separated_list = separeted_word.split("-")
+    separated_list = separated_word.split("-")
 
     for char in separated_list:
         if char.isupper():

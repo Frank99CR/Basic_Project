@@ -24,7 +24,7 @@ class Circle(Shape):
     def calculate_area(self):
         radius = self.diametro / 2
         Pi = math.pi
-        print(f"El area del cirdulo es: {round(Pi * radius ** 2, 2)}cm")
+        print(f"El area del circulo es: {round(Pi * radius ** 2, 2)}cm")
 
 class Square(Shape):
     longitud_lado : int
@@ -38,7 +38,7 @@ class Square(Shape):
 
     def calculate_area(self):
         area = self.longitud_lado * self.longitud_lado
-        print(f"El area dle circulo es: {area} cm2")
+        print(f"El area del circulo es: {area} cm2")
 
 class Rectangle(Shape):
     longitud : int
