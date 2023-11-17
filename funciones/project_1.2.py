@@ -1,79 +1,93 @@
 import csv
-
-class Student:
-  name : str
-  last_name : str
-  group : str
-  spanish_score : int
-  science_score : int
-  english_score : int
-  sociology_score : int
-
-  def __init__(self, name, last_name, group, spanish_score, science_score, english_score, sociology_score):
-    self.name = name
-    self.last_name = last_name
-    self.group = group
-    self.spanish_score = spanish_score
-    self.science_score = science_score
-    self.english_score = english_score
-    self.sociology_score = sociology_score
-
   
-def entry_point():
-  list_of_students = []
-  list_of_top_averages = []
-  student_headers = {
-    "name",
-    "last name",
-    "group",
-    "spanish score",
-    "science score",
-    "english score",
-    "sociology score",
-  }
-  menu(list_of_students, student_headers, list_of_top_averages)
-
-
 def register_student(list_of_students, student_headers, list_of_top_averages):
+ 
+ while True:
+    try:
+        name = input("Please enter your name: ") 
+        for char in name:
+           if char.isdigit():
+              print("El nombre no puede contener numeros. Recuerde que solo se aceptan letras")
+              break
+        else:
+            break 
+    except ValueError as error:
+        print(f"El nombre no puede contener numeros. Recuerde que solo se aceptan letras. Error: {error}")
+
+ while True:
+    try:
+        last_name = input("Please enter your last name: ") 
+        for char in last_name:
+           if char.isdigit():
+              print("El apellido no puede contener numeros. Recuerde que solo se aceptan letras")
+              break
+        else:
+            break 
+    except ValueError as error:
+        print(f"El apellido no puede contener numeros. Recuerde que solo se aceptan letras. Error: {error}")   
+
+ while True:
+    try:
+        group = int(input("Please enter your group: "))
+        if group < 0 or group > 10:
+            print("Por favor, ingrese un grupo valido. El rango aceptado es de 1 a 10.")
+        else:
+            break 
+    except ValueError as error:
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")
+      
+
   
  while True:
-  
-  try:
-     name = input("Please enter your name: ") 
-     last_name = input("Please enter your last name: ") 
-     group = input("Please enter your group: ") 
-     spanish_score = float(input("Please enter your spanish score: "))
-     science_score = float(input("Please enter your science score: "))
-     english_score = float(input("Please enter your english score: "))
-     sociology_score = float(input("Please enter your sociology score: "))
-     student1 = Student(name, last_name, group, spanish_score, science_score, english_score, sociology_score)
-     student_dict = {
-    "name" : student1.name,
-    "last name" : student1.last_name,
-    "group" : student1.group,
-    "spanish score" : student1.spanish_score,
-    "science score" : student1.science_score,
-    "english score" : student1.english_score,
-    "sociology score" : student1.sociology_score,
-  }
-     if spanish_score < 0 or spanish_score > 100:
-       print("Digite una nota valida. Rango aceptado de 0 a 100")
-       continue
-     elif science_score < 0 or science_score > 100:
-       print("Digite una nota valida. Rango aceptado de 0 a 100")
-       continue
-     elif english_score < 0 or english_score > 100:
-       print("Digite una nota valida. Rango aceptado de 0 a 100")
-       continue
-     elif sociology_score < 0 or sociology_score > 100:
-       print("Digite una nota valida. Rango aceptado de 0 a 100")
-       continue
-     
-     list_of_students.append(student_dict)
-     break
-  except ValueError as error:
-    print(f"Ingrese una nota valida, recuerde que solo se aceptan numeros del 0 al 100 {error}") 
-   
+    try:
+        spanish_score = float(input("Ingrese su nota de español: "))
+        if spanish_score < 0 or spanish_score > 100:
+            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+        else:
+            break 
+    except ValueError as error:
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")
+
+ while True:
+    try:
+        science_score = float(input("Please enter your science score: "))
+        if science_score < 0 or science_score > 100:
+            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+        else:
+            break 
+    except ValueError as error:
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")  
+
+ while True:
+    try:
+        english_score = float(input("Please enter your english score: "))
+        if english_score < 0 or english_score > 100:
+            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+        else:
+            break 
+    except ValueError as error:
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")     
+
+ while True:
+    try:
+        sociology_score = float(input("Please enter your sociology score: "))
+        if sociology_score < 0 or sociology_score > 100:
+            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+        else:
+            break 
+    except ValueError as error:
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")  
+
+ student_dict = {
+    "name" : name,
+    "last name" : last_name,
+    "group" : group,
+    "spanish score" : spanish_score,
+    "science score" : science_score,
+    "english score" : english_score,
+    "sociology score" : sociology_score,
+  }      
+ list_of_students.append(student_dict)         
  print("Registro exitoso") 
  menu(list_of_students, student_headers, list_of_top_averages)
  return list_of_students
@@ -122,13 +136,14 @@ def export_to_csv(file_path, list_of_students, student_headers, list_of_top_aver
     writer.writeheader()
     writer.writerows(list_of_students)
     print("Archivos CSV creado exitosamente! ")  
-    menu(list_of_students, student_headers, list_of_top_averages)  
+  menu(list_of_students, student_headers, list_of_top_averages)  
 
 def import_csv_file(file_path, list_of_students, student_headers, list_of_top_averages):
    with open (file_path, 'r') as file:
      reader = csv.DictReader(file)  
      for row in reader:
        print(row)
+       list_of_students.append(row)
    menu(list_of_students, student_headers, list_of_top_averages)      
   
 
@@ -168,6 +183,23 @@ def menu(list_of_students, student_headers, list_of_top_averages):
   else:
     print("Digite la opcion correcta ")
     menu(list_of_students, student_headers, list_of_top_averages)  
+
+
+def entry_point():
+  list_of_students = []
+  list_of_top_averages = []
+  student_headers = {
+    "name",
+    "last name",
+    "group",
+    "spanish score",
+    "science score",
+    "english score",
+    "sociology score",
+  }
+  menu(list_of_students, student_headers, list_of_top_averages)
+
+
 
 
 entry_point()    
