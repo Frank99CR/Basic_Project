@@ -1,16 +1,13 @@
 import csv
 
-
-def validation_of_group (user_input):
- if user_input < 0 or user_input > 10:
-   print("Por favor, ingrese un grupo valido. El rango aceptado es de 1 a 10.")
-
-def validation_of_score (user_score):
- if user_score < 0 or user_score > 100:
+def validation_of_score (user_score):  # Ver linea 48
+ while True:
+  if user_score < 0 or user_score > 100:
    print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-
-
-
+   continue
+  else:
+     break 
+ 
 def register_student(list_of_students, student_headers, list_of_top_averages):
  
  while True:
@@ -40,24 +37,24 @@ def register_student(list_of_students, student_headers, list_of_top_averages):
  while True:
     try:
         group = int(input("Please enter your group: "))
-        if group:
-           validation_of_group(group)    
+        if group < 0 or group > 10:
+           print("Por favor, ingrese un grupo válido. El rango aceptado es de 1 a 10.")   
         else:
             break 
     except ValueError as error:
         print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")
       
-
   
- while True:
+ while True:    # Arreglar
     try:
         spanish_score = float(input("Ingrese su nota de español: "))
-        if spanish_score < 0 or spanish_score > 100:
-            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+        if spanish_score:
+           validation_of_score(spanish_score)
+        
         else:
-            break 
+           break     
     except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")
+        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números. Error: {error}")
 
  while True:
     try:
@@ -78,6 +75,7 @@ def register_student(list_of_students, student_headers, list_of_top_averages):
             break 
     except ValueError as error:
         print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")     
+
 
  while True:
     try:
