@@ -27,7 +27,7 @@ def inverted_bubble_sort (list_to_sort): #Negative Index
 #inverted_bubble_sort(list2)
 
 
-def inverted_bubble_sort_with_positive_index (list_to_sort): #Positive index
+def inverted_bubble_sort_with_positive_index (list_to_sort): #Positive indexgit b
  
  for outer_index in range(len(list_to_sort)-1, -1, -1):
 

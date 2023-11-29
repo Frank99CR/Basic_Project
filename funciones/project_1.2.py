@@ -1,5 +1,11 @@
 import csv
 
+
+def validation_of_scores (input):
+ if input < 0 or input > 10:
+   print("Por favor, ingrese un grupo valido. El rango aceptado es de 1 a 10.")
+
+
 def register_student(list_of_students, student_headers, list_of_top_averages):
  
  while True:
@@ -29,8 +35,8 @@ def register_student(list_of_students, student_headers, list_of_top_averages):
  while True:
     try:
         group = int(input("Please enter your group: "))
-        if group < 0 or group > 10:
-            print("Por favor, ingrese un grupo valido. El rango aceptado es de 1 a 10.")
+        if group:
+           validation_of_scores(group)    
         else:
             break 
     except ValueError as error:
