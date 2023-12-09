@@ -23,20 +23,16 @@ def inverted_bubble_sort (list_to_sort): #Negative Index
 
 
 
-
-#inverted_bubble_sort(list2)
-
-
-def inverted_bubble_sort_with_positive_index (list_to_sort): #Positive indexgit b
+def inverted_bubble_sort_with_positive_index (list_to_sort): #Positive index
  
- for outer_index in range(len(list_to_sort)-1, -1, -1):
+ for outer_index in range(0, len(list_to_sort)):
 
-  for index in range(len(list_to_sort)-1, - 1, -1):
+  for index in range(len(list_to_sort)-1 , - 1 + outer_index, -1):
    has_made_changes = False
    current_element = list_to_sort [index]
    next_index = index - 1
    next_element = list_to_sort [index - 1]
-   #print(f"Index: {index}, Current element: {current_element}, next element: {next_element}" 
+   #print(f"Index: {index}, Current element: {current_element}, next element: {next_element}")
    if next_index != -1:
     print(f"Iteracion:{outer_index}.{index} Elemento actual: {current_element}, Siguiente Elemento: {next_element}")
    else: 
@@ -59,4 +55,6 @@ def inverted_bubble_sort_with_positive_index (list_to_sort): #Positive indexgit 
 list2 = [10,11,6,5,4,3,2,1]
     
 inverted_bubble_sort_with_positive_index(list2)
+
+#inverted_bubble_sort(list2)
 
