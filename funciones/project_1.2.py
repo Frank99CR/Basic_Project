@@ -1,12 +1,26 @@
 import csv
 
-def validation_of_score (user_score):  # Ver linea 48
+
+def validation_of_score (prompt):  # Ver linea 48
  while True:
-  if user_score < 0 or user_score > 100:
-   print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-   continue
-  else:
-     break 
+    try: 
+       user_score = float(input(prompt))
+       if user_score < 0 or user_score > 100:
+            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+       return user_score
+    except ValueError as error:
+       print(f"Error {error}")
+
+
+
+            
+       
+    
+  # if user_score < 0 or user_score > 100:
+  #  print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
+  #  continue
+  # else:
+  #    break 
  
 def register_student(list_of_students, student_headers, list_of_top_averages):
  
