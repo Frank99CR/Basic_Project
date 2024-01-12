@@ -1,105 +1,60 @@
 import csv
 
 
-def validation_of_score (prompt):  # Ver linea 48
+def validation_of_score(user_score):
  while True:
-    try: 
-       user_score = float(input(prompt))
-       if user_score < 0 or user_score > 100:
-            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-       return user_score
+  try:
+    score = float(user_score)
+    if score  < 0 or score < 100:
+     return score
+    else:
+     print("Por favor, ingrese una nota válida.")
+     user_score = input("Por favor, ingrese su nota nuevamente: ")
+  except ValueError as error:
+    print(f"Error: {error}")
+  
+  
+def validates_numbers_in_name_and_last_name(user_name):
+    while True:
+     try:
+       for char in user_name:
+         if char.isdigit():
+          print("El nombre no puede contener numeros. Recuerde que solo se aceptan letras")
+          user_name = input("Ingrese el dato nuevamente: ")
+          validates_numbers_in_name_and_last_name(user_name)
+       else:
+        return user_name
+     except ValueError as error:
+      print(f"Error: {error}")
+
+     
+
+def validation_of_group(user_group):
+  while True:
+    try:
+      group = int(user_group)
+      if group < 0  or group >10:
+        return group
+      else:
+        print("Ingrese un grupo valido. Rango de 1 al 10")
+        user_group = input("Ingrese el grupo nuevamente: ")
     except ValueError as error:
-       print(f"Error {error}")
+      print(f"Error: {error}")  
+   
 
-
-
-            
-       
-    
-  # if user_score < 0 or user_score > 100:
-  #  print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-  #  continue
-  # else:
-  #    break 
+     
  
 def register_student(list_of_students, student_headers, list_of_top_averages):
  
- while True:
-    try:
-        name = input("Please enter your name: ") 
-        for char in name:
-           if char.isdigit():
-              print("El nombre no puede contener numeros. Recuerde que solo se aceptan letras")
-              break
-        else:
-            break 
-    except ValueError as error:
-        print(f"El nombre no puede contener numeros. Recuerde que solo se aceptan letras. Error: {error}")
 
- while True:
-    try:
-        last_name = input("Please enter your last name: ") 
-        for char in last_name:
-           if char.isdigit():
-              print("El apellido no puede contener numeros. Recuerde que solo se aceptan letras")
-              break
-        else:
-            break 
-    except ValueError as error:
-        print(f"El apellido no puede contener numeros. Recuerde que solo se aceptan letras. Error: {error}")   
-
- while True:
-    try:
-        group = int(input("Please enter your group: "))
-        if group < 0 or group > 10:
-           print("Por favor, ingrese un grupo válido. El rango aceptado es de 1 a 10.")   
-        else:
-            break 
-    except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")
-      
-  
- while True:    # Arreglar
-    try:
-        spanish_score = float(input("Ingrese su nota de español: "))
-        if spanish_score:
-           validation_of_score(spanish_score)
-        
-        else:
-           break     
-    except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números. Error: {error}")
-
- while True:
-    try:
-        science_score = float(input("Please enter your science score: "))
-        if science_score < 0 or science_score > 100:
-            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-        else:
-            break 
-    except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")  
-
- while True:
-    try:
-        english_score = float(input("Please enter your english score: "))
-        if english_score < 0 or english_score > 100:
-            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-        else:
-            break 
-    except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")     
-
-
- while True:
-    try:
-        sociology_score = float(input("Please enter your sociology score: "))
-        if sociology_score < 0 or sociology_score > 100:
-            print("Por favor, ingrese una nota válida. El rango aceptado es de 0 a 100.")
-        else:
-            break 
-    except ValueError as error:
-        print(f"Ingrese una nota válida. Recuerde que solo se aceptan números del 0 al 100. Error: {error}")  
+ name = validates_numbers_in_name_and_last_name(input("Please enter your name: "))
+ last_name = validates_numbers_in_name_and_last_name(input("Please enter your last name: ")) 
+ group = validation_of_group(input("Please enter your group: "))
+ spanish_score = validation_of_score(input("Please enter your spanish score: "))
+ science_score = validation_of_score(input("Please enter your science score: "))
+ english_score = validation_of_score(input("Please enter your english score: "))
+ sociology_score = validation_of_score(input("Please enter your sociology score: "))
+       
 
  student_dict = {
     "name" : name,
