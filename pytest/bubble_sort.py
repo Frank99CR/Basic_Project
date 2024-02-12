@@ -22,7 +22,7 @@ def bubble_sort(list_to_sort):
 
     # Si no hemos movido elementos, la lista ya esta ordenada
     if not has_made_changes:
-      return
+      return list_to_sort
     
   return list_to_sort  
 
