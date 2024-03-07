@@ -1,4 +1,5 @@
 import csv
+<<<<<<< HEAD
   
 class Student:
   name : str
@@ -74,10 +75,89 @@ def register_student(list_of_students, student_headers, list_of_top_averages):
   except ValueError as error:
     print(f"Ingrese una nota valida, recuerde que solo se aceptan numeros del 0 al 100 {error}") 
    
+=======
+
+
+def validation_of_score():
+ 
+ while True:
+  try:
+    score = float(input("Ingrese la nota del curso: "))
+    if score  >= 0 and score <= 100:
+     return score
+    else:
+     print("Por favor, ingrese una nota válida.")
+     #user_score = input("Por favor, ingrese su nota nuevamente: ")
+  except ValueError as error:
+    print(f"Error: {error}")
+  
+ #Arreglar: 
+    # Quitar los dobles inputs
+    #
+    #
+    # 
+  
+def validates_numbers_in_name_and_last_name(user_name): #Arreglar
+    while True:
+     try:
+       for char in user_name:
+         if char.isdigit():
+          print("El nombre no puede contener numeros. Recuerde que solo se aceptan letras")
+          user_name = input("Ingrese el dato nuevamente: ")
+          validates_numbers_in_name_and_last_name(user_name)
+       else:
+        return user_name
+     except ValueError as error:
+      print(f"Error: {error}")
+
+     
+
+def validation_of_group(user_group):  #Arreglar
+  while True:
+    try:
+      group = int(user_group)
+      if group >= 0 and group <= 10:
+        return group
+      else:
+        print("Ingrese un grupo valido. Rango de 1 al 10")
+        user_group = input("Ingrese el grupo nuevamente: ")
+    except ValueError as error:
+      print(f"Error: {error}")  
+   
+
+     
+ 
+def register_student(list_of_students, student_headers, list_of_top_averages):
+ 
+
+ name = validates_numbers_in_name_and_last_name(input("Please enter your name: "))
+ last_name = validates_numbers_in_name_and_last_name(input("Please enter your last name: ")) 
+ group = validation_of_group(input("Please enter your group: "))
+ spanish_score = validation_of_score()
+ science_score = validation_of_score()
+ english_score = validation_of_score()
+ sociology_score = validation_of_score()
+       
+
+ student_dict = {
+    "name" : name,
+    "last name" : last_name,
+    "group" : group,
+    "spanish score" : spanish_score,
+    "science score" : science_score,
+    "english score" : english_score,
+    "sociology score" : sociology_score,
+  }      
+ list_of_students.append(student_dict)         
+>>>>>>> second_branch
  print("Registro exitoso") 
  menu(list_of_students, student_headers, list_of_top_averages)
  return list_of_students
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> second_branch
 def print_list_of_students_registered(list_of_students, student_headers, list_of_top_averages):
    print("List of active students: ")
    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
@@ -170,6 +250,10 @@ def menu(list_of_students, student_headers, list_of_top_averages):
     menu(list_of_students, student_headers, list_of_top_averages)  
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> second_branch
 def entry_point():
   list_of_students = []
   list_of_top_averages = []
@@ -182,9 +266,13 @@ def entry_point():
     "english score",
     "sociology score",
   }
+<<<<<<< HEAD
   menu(list_of_students, student_headers, list_of_top_averages)
 
 
+=======
+  menu(list_of_students, student_headers, list_of_top_averages)    
+>>>>>>> second_branch
 
 
 entry_point()    
