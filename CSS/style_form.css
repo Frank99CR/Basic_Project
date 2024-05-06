@@ -1,0 +1,82 @@
+body {
+    background-color: rgba(67, 67, 239, 0.776);
+  }
+
+
+#send{
+    color: white;
+    background-color: blue;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#first_name{
+    
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+ 
+  }
+
+#last_name{
+    
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+ 
+  }
+
+  #email{
+    
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+ 
+  }  
+
+#type{
+    
+    width: 75%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+ 
+  }
+
+  #message{
+    
+    width: 40%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: white;
+    padding: 10px;
+ 
+  }
+
+  .white-container {
+    background-color: white;
+    border: 2px solid white; 
+    padding: 25px; 
+    width: 400px; 
+    margin: 0 auto; 
+    border-radius: 10px; 
+    height: 450px;
+    
+}

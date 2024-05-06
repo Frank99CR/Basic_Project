@@ -1,0 +1,274 @@
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f3f3f3;
+    margin: 0 auto;
+    max-width: 60%;
+    margin-bottom: 25px;;
+    margin-top: 10px;
+   
+
+   
+}
+.nav-main {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+
+}
+.nav-button{
+    background: none;
+    border: none;
+    /* padding-left: 15px; */
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    color: blue; /* Cambia el color del texto cuando el cursor está sobre el enlace */
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.form-control {
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+
+.slide-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fad9d9;
+    border-radius: 10px; 
+    width: 60%;
+    margin: auto; 
+    max-width: 80%;
+    padding-top: 2rem;
+    padding-left: 30px;
+
+}
+
+
+.Slide-1 button {
+    background: linear-gradient( to bottom,  #f37dac 0%, #ef5b94 100%);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.price {
+    color:#ef5b94
+}
+
+
+
+.buy-now-button{
+    color: white;
+    font-size: 16px;
+    padding-top: 12px;
+    padding-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 12px;
+}
+
+
+
+
+.image-container{
+    
+    height: 400px;
+    width: 450px;
+    
+}
+
+.slide-1-image{
+    height: 350px;
+}
+
+.categories-container{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 30px 30px
+    
+    
+}
+
+.category{
+    display: flex;
+    flex-direction:row;
+    border-radius: 15px;
+    background: linear-gradient( to right, rgb(115, 194, 255), pink); 
+    padding-left: -20px;
+    gap: 70px;
+     
+    
+}
+
+.category img {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  height: 90px;
+  width: 100px;
+
+}
+
+.category-name h1 {
+    padding-left: 15px;
+    margin-top: 30px;
+}
+
+
+
+
+
+.title {
+    padding-top: 0px;
+    padding-left: 330px;
+    font-size: 23px;
+  }
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+
+}
+
+.card{
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    
+}
+
+.card-body {
+    
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 15px;
+}
+.card-body h5{
+    font-size: 18px;
+}
+.card-body h4{
+    font-size: 23px;
+}
+.card-body p {
+    font-size: 17px;
+}
+.card-body button{
+    width: 100px;
+    height: 35px;
+    border-radius: 200px;
+    
+}
+.card-body button:hover{
+    background-color: black;
+    color: white;
+}
+
+.card-img {
+    max-width: 300px;
+    height: auto;
+}
+
+
+.backpack-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    margin-bottom: 50px;
+}  
+
+
+
+.orange-container{ 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fad9d9;
+    border-radius: 10px; 
+    width: 60%;
+    margin: auto; 
+    max-width: 80%;
+    padding-top: 2rem;
+    
+    
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.inner-div {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 45px;
+}
+
+.inner-div input{
+    width: auto;
+    height: 28px;
+}
+
+.inner-div button {
+    width: 75px;
+    height: 5px;
+    border-radius: 5px;
+    background: linear-gradient( to bottom,  #f37dac 0%, #ef5b94 100%);
+}
+.inner-div h6 {
+    font-size: 15px;
+    margin-bottom: 2px;
+}
+
+.inner-div h3 {
+    margin-bottom: -27px;
+}
+
+
+
+.main-container {
+    display: flex;
+    flex-direction:column;
+    background-color: rgb(255, 255, 255);
+    
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
