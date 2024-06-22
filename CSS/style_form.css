@@ -1,6 +1,33 @@
 body {
-    background-color: rgba(67, 67, 239, 0.776);
+    background-color: white;
   }
+
+
+
+.main-container{
+  display: flex;
+  padding-top: 200px;
+}  
+.container-form{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 800px;
+  margin: auto;
+  background-color: whitesmoke;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-radius: 15px;
+}  
+.container-form label{
+
+  font-size: 20px;
+
+}
 
 
 #send{

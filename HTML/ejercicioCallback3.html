@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/ejercicio3callback.css" />
+
+    <title>Ejercicio 3</title>
+  </head>
+  <body>
+    <div class="main-div" id="main-div">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel turpis
+        quis urna iaculis condimentum quis ut neque. Curabitur ornare ligula
+        est, et malesuada tortor faucibus non. Fusce ut lacinia mi. Pellentesque
+        laoreet faucibus velit, sed varius nunc vulputate vel. Vivamus vehicula
+        nunc sed nulla pharetra, in commodo odio aliquam. Sed orci erat,
+        porttitor ac magna non, venenatis placerat nulla. Aliquam in eros eu
+        nulla aliquet bibendum sit amet porta augue. Mauris dictum faucibus
+        velit vestibulum placerat. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Nunc ac urna at
+        tortor aliquet auctor. Cras elementum lorem nec enim viverra auctor.
+        Vestibulum nunc dolor, fermentum id pellentesque vel, faucibus et mi.
+        Praesent vel libero efficitur, eleifend dui vel, tristique enim.
+        Vestibulum suscipit luctus purus quis porttitor. Mauris maximus
+        sollicitudin facilisis. Suspendisse lobortis nisl et justo mattis
+        ullamcorper. Donec non pellentesque justo, at luctus turpis. Duis arcu
+        erat, venenatis sed tempus in, mollis vitae lectus. Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Donec luctus tempor dui, at
+        hendrerit quam dignissim tempus. Maecenas hendrerit felis et commodo
+        tempus. Nunc eget nulla finibus, auctor nunc ac, bibendum eros.
+        Vestibulum et nibh sed erat mattis molestie. Donec at neque in metus
+        vulputate semper. Aenean ultricies purus at velit luctus, vel efficitur
+        risus dignissim. Suspendisse sit amet felis nibh. Fusce vestibulum
+        imperdiet odio, quis semper tellus scelerisque quis.
+      </p>
+    </div>
+
+    <button class="color-btn" id="color-btn">Click me!</button>
+  </body>
+</html>
+
+<script>
+    let colorOn = false;
+    const button = document.getElementById('color-btn');
+    const backgroundColors = ['red', 'blue', 'green', 'yellow', 'cyan', 'pink'];
+
+    const changeColor = () =>{
+        const divToColor = document.getElementById('main-div');
+        if (colorOn){
+            const randomColor = backgroundColors[Math.floor(Math.random()* backgroundColors.length)];
+            divToColor.style.backgroundColor =  randomColor;
+        }else{
+            divToColor.style.backgroundColor = ''
+        }
+
+        colorOn = !colorOn;
+    }
+
+    button.addEventListener('click', changeColor)
+
+</script>

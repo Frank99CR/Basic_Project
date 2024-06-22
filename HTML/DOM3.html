@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/style_form.css" />
+    <title>Formulario de Votación</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="container-form">
+        <h1>Complete el formulario con sus datos</h1>
+        <form action="dummyjson.com/test" method="post">
+          <label for="full_name">Nombre completo</label>
+          <input type="text" id="full_name" name="full_name" />
+          <br />
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" />
+          <br />
+          <label for="id_number">Número de identificación</label>
+          <input type="text" id="id_number" name="id_number" />
+          <br />
+          <label for="phone_number">Número de teléfono</label>
+          <input type="text" id="phone_number" name="phone_number" />
+          <br />
+
+          <label for="candidato">Seleccione un candidato</label>
+          <br />
+          <select name="candidato" id="candidato">
+            <option hidden>Select one</option>
+            <option value="Option1">Candidato #1</option>
+            <option value="Option2">Candidato #2</option>
+            <option value="Option3">Candidato #3</option>
+            <option value="Option4">Candidato #4</option>
+          </select>
+          <br />
+
+          <input type="submit" value="Enviar" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

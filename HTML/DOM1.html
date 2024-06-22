@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM #1</title>
+  </head>
+  <body>
+    <div>
+      <button id="add-button">Click me!</button>
+      <button id="delete-button">Remove item!</button>
+      <button id="delete-all">Remove all items</button>
+
+      <ul id="list">
+        <li>an item</li>
+      </ul>
+    </div>
+
+    <script>
+      const button = document.getElementById("add-button");
+
+      const addItem = () => {
+        const item = document.createElement("li");
+        item.innerHTML = "Another item";
+
+        const list = document.getElementById("list");
+        list.appendChild(item);
+      };
+
+      const deleteButton = document.getElementById("delete-button");
+
+      const removeItem = () => {
+        const list = document.getElementById("list");
+
+        if (list.lastElementChild) {
+          list.removeChild(list.lastElementChild);
+        } else {
+          alert("no items to remove!");
+        }
+      };
+
+      const removeAllButton = document.getElementById('delete-all');
+
+      const removeAll = () =>{
+
+        const list = document.getElementById("list")
+
+        while (list.firstChild){
+          list.removeChild(list.firstChild)
+        }
+      }
+
+      button.addEventListener("click", addItem);
+      deleteButton.addEventListener("click", removeItem);
+      removeAllButton.addEventListener('click', removeAll)
+    </script>
+  </body>
+</html>

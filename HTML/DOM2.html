@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/CSS/DOM2.css" />
+    <title>DOM 2</title>
+  </head>
+  <body>
+    <div class="contener-texto">
+      <div class="main-container">
+        <h3>Ingrese su nombre</h3>
+        <input type="text" name="firstName" id="first-name" />
+        <h3>Ingrese su apellido</h3>
+        <input type="text" name="lastName" id="last-name" />
+        <button id="submit-button">submit</button>
+      </div>
+
+      <div class="output">
+        <div id="results"></div>
+      </div>
+    </div>
+
+    <script>
+      const nameField = document.getElementById("first-name");
+      const lastNameField = document.getElementById("last-name");
+      const submitButton = document.getElementById("submit-button");
+      const resultContainer = document.getElementById("results");
+
+      const addData = () => {
+        // Crear nuevos elementos <p> para los valores de los inputs
+        const nameParagraph = document.createElement("p");
+        const lastNameParagraph = document.createElement("p");
+
+        // Obtener los valores de los inputs
+        const firstNameValue = nameField.value;
+        const lastNameValue = lastNameField.value;
+        
+        // Asignar los valores de los inputs a los elementos <p>
+        nameParagraph.innerText = `Nombre: ${firstNameValue}`;
+        lastNameParagraph.innerText = `Apellido: ${lastNameValue}`;
+
+        // Agregar los elementos <p> al contenedor de resultados
+        resultContainer.appendChild(nameParagraph);
+        resultContainer.appendChild(lastNameParagraph);
+
+        nameField.value = ""
+        lastNameField.value = ""
+
+      };
+
+      submitButton.addEventListener("click", addData);
+    </script>
+  </body>
+</html>

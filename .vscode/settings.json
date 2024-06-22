@@ -1,0 +1,20 @@
+{
+    "workbench.productIconTheme": "fluent-icons",
+    // Muestra -> en lugar de =>
+    "editor.fontLigatures": true,
+    // Cambia el estilo del cursor de texto
+    "editor.cursorBlinking": "expand",
+    // Activa una animacion en el cursor
+    "editor.cursorSmoothCaretAnimation": "on",
+    // Crea una linea de colores entre las llaves de codigo
+    "editor.guides.bracketPairs": true,
+    // Usa colores diferntes para cada linea
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    // indica en que grupo de pares de llaves estamos
+    "editor.guides.highlightActiveBracketPair": true,
+    // fija en el scroll la funcion o clase que estamos editando 
+    "editor.stickyScroll.enabled": true,
+    // Guarda automaticamente los cambios del archivo
+    "files.autoSave": "afterDelay"
+
+}
