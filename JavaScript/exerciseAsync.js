@@ -8,7 +8,7 @@ const getData = async () => {
   const data = await response.json();
   console.log("Data loaded! Returning...");
   console.log(data);
-  //console.log(data.data.first_name);
+  console.log(data.data.first_name);
 };
 
 //getData();
