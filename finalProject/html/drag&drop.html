@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/finalProject/css/drag&drop.css" />
+    <title>Drag & Drop</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="input-container">
+        <input
+          type="text"
+          id="task"
+          name="task"
+          placeholder="Input your task"
+        />
+        <button id="add-button" name="button">Create</button>
+      </div>
+      <div class="boxes-container">
+        <div id="left" class="list-container"></div>
+        <div id="center" class="list-container"></div>
+        <div id="right" class="list-container"></div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <div class="modal-date">
+          <p id="creation-date">Created: </p>
+        </div>
+        <h2>Edit Task</h2>
+        <input type="text" id="modal-task" />
+        <button id="save-task">Save</button>
+        <button id="remove-task">Delete</button>
+      </div>
+    </div>
+
+    <script>
+      const button = document.getElementById("add-button");
+      const task = document.getElementById("task");
+      const modal = document.getElementById("modal");
+      const closeModal = document.getElementById("close-modal");
+      const modalTask = document.getElementById("modal-task");
+      const saveTask = document.getElementById("save-task");
+      const removeTask = document.getElementById("remove-task");
+      const creationDate = document.getElementById("creation-date");
+
+      let currentItem = null;
+
+      const addTask = () => {
+        const time = new Date().toLocaleString();
+        const item = document.createElement("div");
+        item.className = "list-item";
+        item.setAttribute("draggable", "true");
+        item.setAttribute("data-id", Date.now());
+        item.setAttribute("data-time", time);
+        item.textContent = task.value;
+        item.addEventListener("click", openModal);
+        item.addEventListener("dragstart", dragStart);
+        item.addEventListener("dragend", dragEnd);
+
+        const list = document.getElementById("left");
+        list.appendChild(item);
+
+        
+        task.value = "";
+      };
+
+      button.addEventListener("click", addTask);
+
+      const dragStart = (event) => {
+        event.dataTransfer.setData(
+          "text/plain",
+          event.target.getAttribute("data-id")
+        );
+        event.target.style.opacity = "0.5";
+      };
+
+      const dragEnd = (event) => {
+        event.target.style.opacity = "1";
+      };
+
+      const dragOver = (event) => {
+        event.preventDefault();
+      };
+
+      const drop = (event) => {
+        event.preventDefault();
+        const id = event.dataTransfer.getData("text/plain");
+        const dropzone = event.target;
+
+        if (dropzone.classList.contains("list-container")) {
+          const originalElement = document.querySelector(
+            `.list-item[data-id="${id}"]`
+          );
+          if (originalElement) {
+            const newElement = document.createElement("div");
+            newElement.className = "list-item";
+            newElement.setAttribute("draggable", "true");
+            newElement.setAttribute("data-id", id);
+            newElement.setAttribute("data-time", originalElement.getAttribute("data-time"));
+            newElement.textContent = originalElement.textContent;
+            newElement.addEventListener("click", openModal);
+            newElement.addEventListener("dragstart", dragStart);
+            newElement.addEventListener("dragend", dragEnd);
+            dropzone.appendChild(newElement);
+            originalElement.remove();
+          }
+        }
+      };
+
+      const openModal = (event) => {
+        currentItem = event.target;
+        modalTask.value = currentItem.textContent;
+        creationDate.textContent = `Created: ${currentItem.getAttribute("data-time")}`;
+        modal.style.display = "block";
+      };
+
+      const closeModalHandler = () => {
+        modal.style.display = "none";
+      };
+
+      const saveTaskHandler = () => {
+        if (currentItem) {
+          currentItem.textContent = modalTask.value;
+          closeModalHandler();
+        }
+      };
+
+      const deleteTask = () => {
+        if (currentItem) {
+          currentItem.remove();
+          closeModalHandler();
+        }
+      };
+
+      closeModal.addEventListener("click", closeModalHandler);
+      saveTask.addEventListener("click", saveTaskHandler);
+      removeTask.addEventListener("click", deleteTask);
+
+      const containers = document.querySelectorAll(".list-container");
+      containers.forEach((container) => {
+        container.addEventListener("dragover", dragOver);
+        container.addEventListener("drop", drop);
+      });
+    </script>
+  </body>
+</html>
