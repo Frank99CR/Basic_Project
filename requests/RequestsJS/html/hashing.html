@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hash Password Example</title>
+  <!-- Incluir una versión simplificada de bcryptjs -->
+  <script>
+    (function() {
+      var bcrypt = {};
+
+      bcrypt.genSaltSync = function(rounds) {
+        // Genera una sal simple para fines de demostración
+        return '$2a$' + rounds + '$' + Array(rounds + 1).join('a');
+      };
+
+      bcrypt.hashSync = function(password, salt) {
+        // Simula el hash para fines de demostración
+        return salt + password.split('').reverse().join('');
+      };
+
+      bcrypt.compareSync = function(password, hash) {
+        // Simula la comparación para fines de demostración
+        return bcrypt.hashSync(password, hash.slice(0, 29)) === hash;
+      };
+
+      window.bcrypt = bcrypt;
+    })();
+  </script>
+</head>
+<body>
+  <input type="password" id="pass" placeholder="Enter your password">
+  <button id="btn-submit">Hash Password</button>
+  <div class="results-div"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Verifica si bcrypt está disponible en el objeto window
+      if (typeof bcrypt === 'undefined') {
+        console.error('bcrypt is not defined. Make sure bcryptjs is loaded correctly.');
+        return;
+      }
+
+      const userPassword = document.getElementById("pass");
+      const button = document.getElementById("btn-submit");
+
+      function hashPassword() {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(userPassword.value, salt);
+        console.log(hash);
+        document.querySelector(".results-div").textContent = `Hashed Password: ${hash}`;
+      }
+
+      button.addEventListener("click", hashPassword);
+    });
+  </script>
+</body>
+</html>

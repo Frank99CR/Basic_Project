@@ -16,6 +16,9 @@
           placeholder="Input your task"
         />
         <button id="add-button" name="button">Create</button>
+        <div class="button-container">
+          <button id="signoff-button" class="signoff-button">Sign Off</button>
+        </div>
       </div>
       <div class="boxes-container">
         <div id="left" class="list-container"></div>
@@ -29,7 +32,7 @@
       <div class="modal-content">
         <span id="close-modal" class="close">&times;</span>
         <div class="modal-date">
-          <p id="creation-date">Created: </p>
+          <p id="creation-date">Created:</p>
         </div>
         <h2>Edit Task</h2>
         <input type="text" id="modal-task" />
@@ -47,6 +50,7 @@
       const saveTask = document.getElementById("save-task");
       const removeTask = document.getElementById("remove-task");
       const creationDate = document.getElementById("creation-date");
+      const buttonOff = document.getElementById("signoff-button");
 
       let currentItem = null;
 
@@ -65,7 +69,6 @@
         const list = document.getElementById("left");
         list.appendChild(item);
 
-        
         task.value = "";
       };
 
@@ -101,7 +104,10 @@
             newElement.className = "list-item";
             newElement.setAttribute("draggable", "true");
             newElement.setAttribute("data-id", id);
-            newElement.setAttribute("data-time", originalElement.getAttribute("data-time"));
+            newElement.setAttribute(
+              "data-time",
+              originalElement.getAttribute("data-time")
+            );
             newElement.textContent = originalElement.textContent;
             newElement.addEventListener("click", openModal);
             newElement.addEventListener("dragstart", dragStart);
@@ -115,7 +121,9 @@
       const openModal = (event) => {
         currentItem = event.target;
         modalTask.value = currentItem.textContent;
-        creationDate.textContent = `Created: ${currentItem.getAttribute("data-time")}`;
+        creationDate.textContent = `Created: ${currentItem.getAttribute(
+          "data-time"
+        )}`;
         modal.style.display = "block";
       };
 
@@ -146,6 +154,21 @@
         container.addEventListener("dragover", dragOver);
         container.addEventListener("drop", drop);
       });
+
+  
+
+      if (!localStorage.getItem("authToken")) {
+        window.location.href = "/finalProject/html/login.html";
+      } else {
+        console.log("Session Active!");
+      }
+
+      const logOut = () => {
+        localStorage.removeItem("authToken");
+        window.location.href = "/finalProject/html/index.html";
+      };
+
+      buttonOff.addEventListener("click", logOut);
     </script>
   </body>
 </html>

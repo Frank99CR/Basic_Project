@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/requests/Requests&DOM/css/profile.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/requests/Requests&DOM/images/user-add-svgrepo-com.svg"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="card-container">
+      <div class="card-one">
+        <img src="/imagenes/Left.jpg" alt="imagen tarjeta" />
+        <div class="card-content">
+          <h2>Neo Geo 29 Candy Cab</h2>
+          <p>
+            Neo Geo MVS Candy Cab 29 es una cabina arcade emblemática conocida
+            por su diseño compacto y elegante, equipada con una pantalla de 29
+            pulgadas que ofrece una experiencia visual inmersiva. Con capacidad
+            para múltiples juegos gracias a sus cartuchos intercambiables.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-two">
+        <img src="/imagenes/Left.jpg" alt="imagen tarjeta" />
+        <div class="card-content">
+          <h2>Neo Geo 29 Candy Cab</h2>
+          <p>
+            Neo Geo MVS Candy Cab 29 es una cabina arcade emblemática conocida
+            por su diseño compacto y elegante, equipada con una pantalla de 29
+            pulgadas que ofrece una experiencia visual inmersiva. Con capacidad
+            para múltiples juegos gracias a sus cartuchos intercambiables.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-three">
+        <img src="/imagenes/Left.jpg" alt="imagen tarjeta" />
+        <div class="card-content">
+          <h2>Neo Geo 29 Candy Cab</h2>
+          <p>
+            Neo Geo MVS Candy Cab 29 es una cabina arcade emblemática conocida
+            por su diseño compacto y elegante, equipada con una pantalla de 29
+            pulgadas que ofrece una experiencia visual inmersiva. Con capacidad
+            para múltiples juegos gracias a sus cartuchos intercambiables.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="button-container">
+      <button id="signoff-button" class="signoff-button">Sign Off</button>
+    </div>
+
+    <script>
+
+        const button = document.getElementById('signoff-button');
+
+        if (!localStorage.getItem('authToken')){
+            window.location.href = "/requests/Requests&DOM/html/login.html";
+        }else{
+            console.log("Session Active!");
+            alert("Session Active!")
+        }
+
+        const logOut = () => {
+            localStorage.removeItem('authToken');
+            window.location.href = "/requests/Requests&DOM/html/login.html";
+
+        }
+
+        button.addEventListener('click', logOut)
+    </script>
+  </body>
+</html>

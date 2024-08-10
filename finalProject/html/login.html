@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/finalProject/css/login copy.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/finalProject/imagenes/user-add-svgrepo-com.svg"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <section>
+      <div class="main-container">
+        <div class="login-container">
+          <div class="image-container">
+            <img
+              src="/finalProject/imagenes/user-add-svgrepo-com.svg"
+              alt="login-image"
+              class="img-login"
+            />
+          </div>
+
+          <div class="login-instruction">
+            <h1>Sign In</h1>
+          </div>
+          <div class="icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
+          </div>
+
+          <div class="input-container">
+            <label for="ID"></label><br />
+            <input type="text" id="userId" name="userId" placeholder="ID" />
+
+            <label for="email"></label><br />
+            <input
+              type="email"
+              id="email-input"
+              name="email"
+              placeholder="Email"
+            />
+            <button id="login-button" class="login-button">Log in</button>
+          </div>
+
+          <div class="additional-instruction">
+            <a href="">Forgot password?</a>
+            <a href="/finalProject/html/signup.html">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const userId = document.getElementById("userId");
+        const userEmail = document.getElementById("email-input");
+        const button = document.getElementById("login-button");
+
+        if (!userId || !userEmail || !button) {
+          console.error("One or more elements not found.");
+          return;
+        }
+
+        button.addEventListener("click", async () => {
+          if (!userId.value || !userEmail.value) {
+            alert("Please fill in all fields.");
+            return;
+          }
+
+          try {
+            const response = await fetch(
+              `https://api.restful-api.dev/objects/${userId.value}`
+            );
+
+            if (!response.ok) {
+              const result = await response.json();
+              console.error("Login failed:", result);
+              alert("Error during login: " + (result.message || "Unknown error"));
+              return;
+            }
+
+            const result = await response.json();
+            console.log("Login result:", result);
+
+            if (result.data && result.data.userEmail === userEmail.value) {
+              alert("Login Successful!");
+              localStorage.setItem("authToken", result.token);
+              window.location.href = "/finalProject/html/drag&drop.html";
+            } else {
+              alert("Incorrect email.");  
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred: " + error.message);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+    </script>
+  </body>
+</html>
