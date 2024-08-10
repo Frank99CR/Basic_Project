@@ -15,7 +15,7 @@ document.getElementById('input').addEventListener('keypress', async function (e)
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer sk-proj-reLYUfiBjJ1HvYFpugldT3BlbkFJp3bGdl0cHo0dloSpITfN`  // Reemplaza con tu clave API
+                    'Authorization': `Bearer`  //
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
