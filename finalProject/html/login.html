@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/finalProject/JS/login.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -50,7 +51,18 @@
               id="email-input"
               name="email"
               placeholder="Email"
+              required
             />
+
+            <label for="password"></label><br />
+            <input
+              type="password"
+              id="password-input"
+              name="password"
+              placeholder="Password"
+              required
+            />
+          
             <button id="login-button" class="login-button">Log in</button>
           </div>
 
@@ -61,52 +73,6 @@
         </div>
       </div>
     </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const userId = document.getElementById("userId");
-        const userEmail = document.getElementById("email-input");
-        const button = document.getElementById("login-button");
-
-        if (!userId || !userEmail || !button) {
-          console.error("One or more elements not found.");
-          return;
-        }
-
-        button.addEventListener("click", async () => {
-          if (!userId.value || !userEmail.value) {
-            alert("Please fill in all fields.");
-            return;
-          }
-
-          try {
-            const response = await fetch(
-              `https://api.restful-api.dev/objects/${userId.value}`
-            );
-
-            if (!response.ok) {
-              const result = await response.json();
-              console.error("Login failed:", result);
-              alert("Error during login: " + (result.message || "Unknown error"));
-              return;
-            }
-
-            const result = await response.json();
-            console.log("Login result:", result);
-
-            if (result.data && result.data.userEmail === userEmail.value) {
-              alert("Login Successful!");
-              localStorage.setItem("authToken", result.token);
-              window.location.href = "/finalProject/html/drag&drop.html";
-            } else {
-              alert("Incorrect email.");  
-            }
-          } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred: " + error.message);
-          }
-        });
-      });
-    </script>
   </body>
 </html>
     </script>
