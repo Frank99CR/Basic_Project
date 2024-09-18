@@ -160,5 +160,7 @@ def get_prime_number (list_of_numbers):
     return list_of_primes  
 
 
-print(get_prime_number(numbers_to_check))
+#print(get_prime_number(numbers_to_check))
+
+
 
