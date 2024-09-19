@@ -1,1 +1,26 @@
-[{"Id": 101, "Title": "Code everyday", "Description": "Practice JS & Python", "Status": "Not started"}, {"Id": 102, "Title": "Workout everyday for a month", "Description": "Run 1 mile everyday", "Status": "In progress"}, {"Id": 103, "Title": "Updating and writing in Json file", "Description": "writing data", "Status": "In progress"}, {"Id": 104, "Title": "Read a book", "Description": "Reading a book", "Status": "Completed"}]
+[
+  {
+    "Id": 101,
+    "Title": "Code everyday",
+    "Description": "Practice JS & Python",
+    "Status": "Not started"
+  },
+  {
+    "Id": 102,
+    "Title": "Workout everyday for a month",
+    "Description": "Run 1 mile everyday",
+    "Status": "In progress"
+  },
+  {
+    "Id": 103,
+    "Title": "Updating and writing in Json file",
+    "Description": "writing data",
+    "Status": "In progress"
+  },
+  {
+    "Id": 104,
+    "Title": "Read a book",
+    "Description": "Reading a book",
+    "Status": "Completed"
+  }
+]
